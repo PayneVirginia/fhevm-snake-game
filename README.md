@@ -67,8 +67,8 @@ fhevm-snake-game/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/PayneVirginia/fhevm-snake-game.git
-cd fhevm-snake-game
+   git clone https://github.com/PayneVirginia/fhevm-snake-game-updated.git
+cd fhevm-snake-game-updated
 ```
 
 ### 2. Install Dependencies
