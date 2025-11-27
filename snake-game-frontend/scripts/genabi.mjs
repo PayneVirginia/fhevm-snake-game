@@ -20,7 +20,16 @@ const dirname = path.basename(dir);
 const line =
   "\n===================================================================\n";
 
+// Check if ABI files already exist (for Vercel builds)
+const existingABIFile = path.join(outdir, `${CONTRACT_NAME}ABI.ts`);
+const existingAddressesFile = path.join(outdir, `${CONTRACT_NAME}Addresses.ts`);
+
 if (!fs.existsSync(dir)) {
+  if (fs.existsSync(existingABIFile) && fs.existsSync(existingAddressesFile)) {
+    console.log(`⚠️  Unable to locate ${rel}, but ABI files already exist. Skipping generation.`);
+    console.log(`✅ Using existing ABI files for build.`);
+    process.exit(0);
+  }
   console.error(
     `${line}Unable to locate ${rel}. Expecting ${dirname} at project root${line}`
   );
